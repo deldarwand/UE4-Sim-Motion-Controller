@@ -31,9 +31,14 @@ public:
 	void ToggleMotionBack();
 	void ToggleMotionUp();
 	void ToggleMotionDown();
-	void ToggleXRotation();
-	void ToggleYRotation();
-	void ToggleZRotation();
+
+	void ToggleXPositiveRotation();
+	void ToggleYPositiveRotation();
+	void ToggleZPositiveRotation();
+
+	void ToggleXNegativeRotation();
+	void ToggleYNegativeRotation();
+	void ToggleZNegativeRotation();
 
 private:
 	/** This is the controller we are going to move and rotate.

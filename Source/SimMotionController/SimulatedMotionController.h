@@ -29,9 +29,13 @@ public:
 	void ToggleMoveUp();
 	void ToggleMoveDown();
 
-	void ToggleXRotation();
-	void ToggleYRotation();
-	void ToggleZRotation();
+	void ToggleXPositiveRotation();
+	void ToggleYPositiveRotation();
+	void ToggleZPositiveRotation();
+	
+	void ToggleXNegativeRotation();
+	void ToggleYNegativeRotation();
+	void ToggleZNegativeRotation();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Motion Simulation", meta = (AllowPrivateAccess = "true"))
 	bool ShouldBeSimulated;
@@ -40,7 +44,8 @@ private:
 	FVector ControllerPosition, TranslationSpeedVector;
 	FRotator ControllerOrientation, RotationSpeedRotator;
 	bool ShouldMoveLeft, ShouldMoveRight, ShouldMoveForward, ShouldMoveBack, ShouldMoveUp, ShouldMoveDown;
-	bool ShouldRotateAroundX, ShouldRotateAroundY, ShouldRotateAroundZ;
+	bool ShouldRotateAroundXPositive, ShouldRotateAroundYPositive, ShouldRotateAroundZPositive;
+	bool ShouldRotateAroundXNegative, ShouldRotateAroundYNegative, ShouldRotateAroundZNegative;
 
 	bool PollControllerState(FVector& Position, FRotator& Orientation);
 

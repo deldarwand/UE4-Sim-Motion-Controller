@@ -51,31 +51,55 @@ void ASimMotionCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 	InputComponent->BindAction("MoveMotionControllerDown", IE_Pressed, this, &ASimMotionCharacter::ToggleMotionDown);
 	InputComponent->BindAction("MoveMotionControllerDown", IE_Released, this, &ASimMotionCharacter::ToggleMotionDown);
 
-	InputComponent->BindAction("RotateControllerAroundX", IE_Pressed, this, &ASimMotionCharacter::ToggleXRotation);
-	InputComponent->BindAction("RotateControllerAroundX", IE_Released, this, &ASimMotionCharacter::ToggleXRotation);
+	InputComponent->BindAction("RotateControllerAroundXPositive", IE_Pressed, this, &ASimMotionCharacter::ToggleXPositiveRotation);
+	InputComponent->BindAction("RotateControllerAroundXPositive", IE_Released, this, &ASimMotionCharacter::ToggleXPositiveRotation);
 
-	InputComponent->BindAction("RotateControllerAroundY", IE_Pressed, this, &ASimMotionCharacter::ToggleYRotation);
-	InputComponent->BindAction("RotateControllerAroundY", IE_Released, this, &ASimMotionCharacter::ToggleYRotation);
+	InputComponent->BindAction("RotateControllerAroundYPositive", IE_Pressed, this, &ASimMotionCharacter::ToggleYPositiveRotation);
+	InputComponent->BindAction("RotateControllerAroundYPositive", IE_Released, this, &ASimMotionCharacter::ToggleYPositiveRotation);
 
-	InputComponent->BindAction("RotateControllerAroundZ", IE_Pressed, this, &ASimMotionCharacter::ToggleZRotation);
-	InputComponent->BindAction("RotateControllerAroundZ", IE_Released, this, &ASimMotionCharacter::ToggleZRotation);
+	InputComponent->BindAction("RotateControllerAroundZPositive", IE_Pressed, this, &ASimMotionCharacter::ToggleZPositiveRotation);
+	InputComponent->BindAction("RotateControllerAroundZPositive", IE_Released, this, &ASimMotionCharacter::ToggleZPositiveRotation);
+
+	InputComponent->BindAction("RotateControllerAroundXNegative", IE_Pressed, this, &ASimMotionCharacter::ToggleXNegativeRotation);
+	InputComponent->BindAction("RotateControllerAroundXNegative", IE_Released, this, &ASimMotionCharacter::ToggleXNegativeRotation);
+
+	InputComponent->BindAction("RotateControllerAroundYNegative", IE_Pressed, this, &ASimMotionCharacter::ToggleYNegativeRotation);
+	InputComponent->BindAction("RotateControllerAroundYNegative", IE_Released, this, &ASimMotionCharacter::ToggleYNegativeRotation);
+
+	InputComponent->BindAction("RotateControllerAroundZNegative", IE_Pressed, this, &ASimMotionCharacter::ToggleZNegativeRotation);
+	InputComponent->BindAction("RotateControllerAroundZNegative", IE_Released, this, &ASimMotionCharacter::ToggleZNegativeRotation);
 
 
 }
 
-void ASimMotionCharacter::ToggleXRotation()
+void ASimMotionCharacter::ToggleXPositiveRotation()
 {
-	MotionController->ToggleXRotation();
+	MotionController->ToggleXPositiveRotation();
 }
 
-void ASimMotionCharacter::ToggleYRotation()
+void ASimMotionCharacter::ToggleYPositiveRotation()
 {
-	MotionController->ToggleYRotation();
+	MotionController->ToggleYPositiveRotation();
 }
 
-void ASimMotionCharacter::ToggleZRotation()
+void ASimMotionCharacter::ToggleZPositiveRotation()
 {
-	MotionController->ToggleZRotation();
+	MotionController->ToggleZPositiveRotation();
+}
+
+void ASimMotionCharacter::ToggleXNegativeRotation()
+{
+	MotionController->ToggleXNegativeRotation();
+}
+
+void ASimMotionCharacter::ToggleYNegativeRotation()
+{
+	MotionController->ToggleYNegativeRotation();
+}
+
+void ASimMotionCharacter::ToggleZNegativeRotation()
+{
+	MotionController->ToggleZNegativeRotation();
 }
 
 void ASimMotionCharacter::ToggleMotionLeft()

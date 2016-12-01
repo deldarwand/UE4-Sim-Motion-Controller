@@ -14,7 +14,9 @@ USimulatedMotionController::USimulatedMotionController()
 	Hand = EControllerHand::Left;
 	bDisableLowLatencyUpdate = false;
 	ShouldMoveLeft = ShouldMoveRight = ShouldMoveForward = ShouldMoveBack = ShouldMoveUp = ShouldMoveDown = false;
-	ShouldRotateAroundX = ShouldRotateAroundY = ShouldRotateAroundZ = false;
+	ShouldRotateAroundXPositive = ShouldRotateAroundYPositive = ShouldRotateAroundZPositive = false;
+	ShouldRotateAroundXNegative = ShouldRotateAroundYNegative = ShouldRotateAroundZNegative = false;
+	
 	TranslationSpeedVector = FVector(50.0f);
 
 	/** Change this position when using anywhere else.
@@ -66,19 +68,34 @@ void USimulatedMotionController::TranslateController(FVector TranslationVector)
 	ControllerPosition += TranslationVector;
 }
 
-void USimulatedMotionController::ToggleXRotation()
+void USimulatedMotionController::ToggleXPositiveRotation()
 {
-	ShouldRotateAroundX = !ShouldRotateAroundX;
+	ShouldRotateAroundXPositive = !ShouldRotateAroundXPositive;
 }
 
-void USimulatedMotionController::ToggleYRotation()
+void USimulatedMotionController::ToggleYPositiveRotation()
 {
-	ShouldRotateAroundY = !ShouldRotateAroundY;
+	ShouldRotateAroundYPositive = !ShouldRotateAroundYPositive;
 }
 
-void USimulatedMotionController::ToggleZRotation()
+void USimulatedMotionController::ToggleZPositiveRotation()
 {
-	ShouldRotateAroundZ = !ShouldRotateAroundZ;
+	ShouldRotateAroundZPositive = !ShouldRotateAroundZPositive;
+}
+
+void USimulatedMotionController::ToggleXNegativeRotation()
+{
+	ShouldRotateAroundXNegative = !ShouldRotateAroundXNegative;
+}
+
+void USimulatedMotionController::ToggleYNegativeRotation()
+{
+	ShouldRotateAroundYNegative = !ShouldRotateAroundYNegative;
+}
+
+void USimulatedMotionController::ToggleZNegativeRotation()
+{
+	ShouldRotateAroundZNegative = !ShouldRotateAroundZNegative;
 }
 
 void USimulatedMotionController::RotateController(FRotator RotationRotator)
@@ -132,17 +149,30 @@ void USimulatedMotionController::TickComponent(float DeltaTime, enum ELevelTick 
 	}
 
 	FRotator RotationRotator = FRotator(0.0f);
-	if (ShouldRotateAroundX)
+	if (ShouldRotateAroundXPositive)
 	{
 		RotationRotator.Roll += DeltaRotation.Roll;
 	}
-	if (ShouldRotateAroundY)
+	if (ShouldRotateAroundYPositive)
 	{
 		RotationRotator.Pitch += DeltaRotation.Pitch;
 	}
-	if (ShouldRotateAroundZ)
+	if (ShouldRotateAroundZPositive)
 	{
 		RotationRotator.Yaw += DeltaRotation.Yaw;
+	}
+
+	if (ShouldRotateAroundXNegative)
+	{
+		RotationRotator.Roll -= DeltaRotation.Roll;
+	}
+	if (ShouldRotateAroundYNegative)
+	{
+		RotationRotator.Pitch -= DeltaRotation.Pitch;
+	}
+	if (ShouldRotateAroundZNegative)
+	{
+		RotationRotator.Yaw -= DeltaRotation.Yaw;
 	}
 
 	RotateController(RotationRotator);
