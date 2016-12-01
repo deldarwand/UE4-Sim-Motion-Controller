@@ -13,9 +13,12 @@ To move the controller the following controls are currently set up:
 | , (comma) | Move the controller back |
 | U | Move the controller up |
 | O | Move the controller down |
-| H | Rotate the controller along the X axis. |
-| T | Rotate the controller along the Y axis. |
-| G | Rotate the controller along the Z axis. |
+| H | Rotate the controller positively along the X axis. |
+| T | Rotate the controller positively along the Y axis. |
+| G | Rotate the controller positively along the Z axis. |
+| Y | Rotate the controller negatively along the X axis. |
+| R | Rotate the controller negatively along the Y axis. |
+| F | Rotate the controller negatively along the Z axis. |
 
 # Before using
 In the **SimulatedMotionController.cpp** file, in the constructor, the position is set to (200.0, 0.0, 0.0).
